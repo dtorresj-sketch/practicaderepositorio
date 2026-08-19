@@ -1,0 +1,27 @@
+import random
+
+def juego_adivinanza():
+    print("¡Bienvenido al juego de adivinar el número!")
+    numero_secreto = random.randint(1, 100)
+    intentos = 0
+    adivinado = False
+
+    while not adivinado:
+        try:
+            intento = int(input("Adivina el número secreto (entre 1 y 100): "))
+            intentos += 1
+            
+            if intento < numero_secreto:
+                print("El número secreto es MÁS GRANDE.")
+            elif intento > numero_secreto:
+                print("El número secreto es MÁS PEQUEÑO.")
+            else:
+                print(f"¡Felicidades! Adivinaste el número en {intentos} intentos.")
+                adivinado = True
+                
+        except ValueError:
+            print("Error: Por favor, ingresa un número entero válido.")
+
+# Esta línea asegura que el juego se ejecute solo si ejecutas este archivo directamente
+if __name__ == "__main__":
+    juego_adivinanza()
